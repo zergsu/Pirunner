@@ -7,6 +7,7 @@ public class PortalLevelSelect : MonoBehaviour
     [SerializeField] bool levelUnlocked;
     [SerializeField] GameObject twirlEffect;
     [SerializeField] GameObject trigger;
+    [SerializeField] GameObject Canvas;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,16 @@ public class PortalLevelSelect : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("s");
+        Canvas.SetActive(true);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Canvas.SetActive(false);
     }
 }
