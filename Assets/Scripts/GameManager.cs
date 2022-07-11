@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    [Header("Refferences")]
+    public Timer timer;
+    public PlayerMovement player;
+
+    [Header("Screens")]
+    public GameObject loseScreen;
+    public GameObject menu;
+
+    public bool playerDied;
+
     void Start()
     {
-        
+        playerDied = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if(playerDied)
+		{
+            //Lose();
+		}
     }
+
+
+
+    public void RestartGame()
+	{
+        timer.ResetTime();
+	}
+
+    private void Lose()
+	{
+        loseScreen.SetActive(true);
+	}
+
 }

@@ -67,12 +67,4 @@ public class FlyingButtons : MonoBehaviour
             clickable = true;
         }
     }
-
-    //void CheckIfDone()
-    //{
-    //    if (!DOTween.IsTweening(buttons.Length - 1))
-    //    {
-    //        //menuUp = 2;
-    //    }
-    //}
 }

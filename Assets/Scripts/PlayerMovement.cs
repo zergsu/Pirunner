@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
     public bool sprinting;
     public bool moving;
     public bool onMovingPlatform;
-    public bool stuck;
 
 
     public float groundDrag;
@@ -51,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         onMovingPlatform = false;
         maxSpeed = moveSpeed;
-        stuck = false;
     }
 
     private void Update()
@@ -82,16 +80,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void MyInput()
     {
-        if(!stuck) //if player is not stuck at the wall
-		{
-            if (grounded)
-            {
-                horizontalInput = Input.GetAxisRaw("Horizontal");
-            }
-            else horizontalInput = 0;
-
-            verticalInput = Input.GetAxisRaw("Vertical");
+        if (grounded)
+        {
+            horizontalInput = Input.GetAxisRaw("Horizontal");
         }
+        else horizontalInput = 0;
+
+        verticalInput = Input.GetAxisRaw("Vertical");
 
         // when to jump
         if (Input.GetKey(KeyCode.Space) && readyToJump && grounded)
@@ -164,10 +159,5 @@ public class PlayerMovement : MonoBehaviour
             maxSpeed = moveSpeed;
 		}
             
-	}
-
-    private void stuckCheck()
-	{
-
 	}
 }
