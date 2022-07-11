@@ -5,6 +5,11 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    [Header("Sounds")]
+    public AudioClip jumpSound;
+
+
     [Header("Movement")]
     public float moveSpeed;
     public bool sprinting;
@@ -143,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
 		{
             maxSpeed += 2;
 		}
-
+        SoundManager.instance.PlaySound(jumpSound);
     }
     private void ResetJump()
     {
@@ -159,5 +164,10 @@ public class PlayerMovement : MonoBehaviour
             maxSpeed = moveSpeed;
 		}
             
+	}
+
+	private void OnCollisionEnter(Collision other)
+	{
+		
 	}
 }
