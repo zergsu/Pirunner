@@ -7,6 +7,10 @@ public class FishNavPath : MonoBehaviour
 {
     [SerializeField] private Vector3 movePostionTransform;
 
+
+    [SerializeField] float minX = 20, maxX = 10;
+    [SerializeField] float minZ = -8, maxZ = 223;
+
     private NavMeshAgent navMeshAgent;
 
 	private void Awake() {
@@ -28,7 +32,7 @@ public class FishNavPath : MonoBehaviour
 
     private void ResetDestination()
 	{
-        movePostionTransform = new Vector3(Random.Range(-20, 10), transform.position.y, Random.Range(-8, 223));
+        movePostionTransform = new Vector3(Random.Range(minX, maxX), transform.position.y, Random.Range(minZ, maxZ));
     }
 
     IEnumerator CheckPosition() // if the fish is stuck reset position and destination

@@ -166,8 +166,8 @@ public class PlayerMovement : MonoBehaviour
             
 	}
 
-	private void OnCollisionEnter(Collision other)
+    public void OnJumper(float jumpForce)
 	{
-		
-	}
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
 }

@@ -8,41 +8,74 @@ public class MovingPlatform : MonoBehaviour
     public GameObject PlayerModel;
     public GameObject PlayerPos;
     public PlayerMovement Player;
+    public GameManager gameManager;
+
 
     public bool playerOnPlatform = false;
     public bool connected = false;
 
-    [Header("Positions")]
+    [SerializeField] private float movingSpeed = -10f;
 
-    [SerializeField]
-    private float firstPos, secondPos;
-    [SerializeField]
-    private float movingSpeed = -10f;
+    [Header("Direction")]
+    [SerializeField] private bool Z = false;
+    [SerializeField] private bool X = true;
+
+    [Header("Positions")]
+    [SerializeField] private float firstPos, secondPos;
+
+    
 
     bool movingPos = true; //fixes the platform bugging on the same position on the x axis
 
 	void Update()
-    {
-
-        transform.position += new Vector3(movingSpeed * Time.deltaTime, 0, 0);
-
-        if(movingPos)
+	{
+		if (X)
 		{
-            if (transform.position.x <= secondPos)
+			transform.position += new Vector3(movingSpeed * Time.deltaTime, 0, 0);
+
+            if (movingPos)
             {
-                movingSpeed *= -1;
-                movingPos = false;
+                if (transform.position.x <= secondPos)
+                {
+                    movingSpeed *= -1;
+                    movingPos = false;
+                }
+            }
+
+            if (!movingPos)
+            {
+                if (transform.position.x >= firstPos)
+                {
+                    movingSpeed *= -1;
+                    movingPos = true;
+                }
             }
         }
-
-        if(!movingPos)
+        else if(Z)
 		{
-            if (transform.position.x >= firstPos)
+            transform.position += new Vector3(0, 0, movingSpeed * Time.deltaTime);
+
+            if (movingPos)
             {
-                movingSpeed *= -1;
-                movingPos = true;
+                if (transform.position.z <= secondPos)
+                {
+                    movingSpeed *= -1;
+                    movingPos = false;
+                }
+            }
+
+            if (!movingPos)
+            {
+                if (transform.position.z >= firstPos)
+                {
+                    movingSpeed *= -1;
+                    movingPos = true;
+                }
             }
         }
+		
+
+
 
         if (Input.GetKeyDown(Player.jumpKey) && Player.onMovingPlatform)
         {
@@ -59,8 +92,13 @@ public class MovingPlatform : MonoBehaviour
             }
             else if(Player.moving && connected)
 			{
-                PlayerPos.transform.parent = null;
+                ResetPlayer();
             }
+        }
+
+        if(gameManager.playerDied)
+		{
+            ResetPlayer();
         }
     }
 
@@ -74,5 +112,11 @@ public class MovingPlatform : MonoBehaviour
 	private void OnTriggerExit(Collider other)
 	{
         playerOnPlatform = false;
+    }
+
+
+    public void ResetPlayer()
+	{
+        PlayerPos.transform.parent = null;
     }
 }
