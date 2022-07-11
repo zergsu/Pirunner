@@ -8,6 +8,7 @@ public class PortalLevelSelect : MonoBehaviour
     [SerializeField] GameObject twirlEffect;
     [SerializeField] GameObject trigger;
     [SerializeField] GameObject Canvas;
+    [SerializeField] GameObject Score;
 
     // Start is called before the first frame update
     void Start()
