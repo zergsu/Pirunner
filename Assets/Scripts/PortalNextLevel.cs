@@ -5,6 +5,7 @@ using UnityEngine;
 public class PortalNextLevel : MonoBehaviour
 {
     [SerializeField] GameObject twirlEffect;
+	[SerializeField] GameObject particleEffect;
 
 	private void Start()
 	{
@@ -14,5 +15,6 @@ public class PortalNextLevel : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             twirlEffect.SetActive(true);
-    }
+		    particleEffect.SetActive(true);
+	}
 }

@@ -11,7 +11,7 @@ public class FishNavPath : MonoBehaviour
 
 	private void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        movePostionTransform = new Vector3(Random.Range(-20, 10), transform.position.y, Random.Range(-8, 223));
+        ResetDestination();
     }
 
     
@@ -22,7 +22,24 @@ public class FishNavPath : MonoBehaviour
 
         if (Vector3.Distance(transform.position, movePostionTransform) < 0.001f || transform.position == movePostionTransform)
 		{
-            movePostionTransform = new Vector3(Random.Range(-20, 10), transform.position.y, Random.Range(-8, 223));
-		}
+            ResetDestination();
+        }
     }
+
+    private void ResetDestination()
+	{
+        movePostionTransform = new Vector3(Random.Range(-20, 10), transform.position.y, Random.Range(-8, 223));
+    }
+
+    IEnumerator CheckPosition() // if the fish is stuck reset position and destination
+	{
+        Vector3 currentPos = transform.position;
+        yield return new WaitForSeconds(0.1f);
+        if (currentPos == transform.position)
+		{
+            transform.position += Vector3.up;
+
+            ResetDestination();
+        }
+	}
 }
