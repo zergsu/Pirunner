@@ -5,17 +5,25 @@ using UnityEngine;
 public class MovingPlatform : MonoBehaviour
 {
 
-    public GameObject Player;
+    public GameObject PlayerModel;
+    public GameObject PlayerPos;
+    public PlayerMovement Player;
+
+    public bool playerOnPlatform = false;
+    public bool connected = false;
+
+    [Header("Positions")]
 
     [SerializeField]
-    float firstPos, secondPos;
+    private float firstPos, secondPos;
     [SerializeField]
-    float movingSpeed = -10f;
+    private float movingSpeed = -10f;
 
     bool movingPos = true; //fixes the platform bugging on the same position on the x axis
 
 	void Update()
     {
+
         transform.position += new Vector3(movingSpeed * Time.deltaTime, 0, 0);
 
         if(movingPos)
@@ -35,18 +43,36 @@ public class MovingPlatform : MonoBehaviour
                 movingPos = true;
             }
         }
+
+        if (Input.GetKeyDown(Player.jumpKey) && Player.onMovingPlatform)
+        {
+            Player.onMovingPlatform = false;
+            PlayerPos.transform.parent = null;
+        }
+
+        if (playerOnPlatform)
+		{
+            if(!Player.moving)
+			{
+                PlayerPos.transform.parent = transform;
+                connected = true;
+            }
+            else if(Player.moving && connected)
+			{
+                PlayerPos.transform.parent = null;
+            }
+        }
     }
 
+
+    
 	private void OnTriggerEnter(Collider other)
 	{
-        if (other.gameObject == Player)
-		{
-            Player.transform.parent = transform;
-		}    
-	}
+        playerOnPlatform = true;
+    }
 
 	private void OnTriggerExit(Collider other)
 	{
-        Player.transform.parent = null;
-	}
+        playerOnPlatform = false;
+    }
 }

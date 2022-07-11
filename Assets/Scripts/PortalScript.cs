@@ -10,7 +10,7 @@ public class PortalScript : MonoBehaviour
     float inTime;
     bool playerIsInPortal;
 
-    // Start is called before the first frame update
+    
     void Start()
     {
         if (level == -1)
