@@ -321,30 +321,10 @@ PrefabInstance:
       propertyPath: m_BlockingObjects
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5135862396842055435, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 5135862396842055435, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 9072802649888239797, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
-        type: 3}
-      propertyPath: m_text
-      value: Level 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9072802649888239797, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
         type: 3}
       propertyPath: m_TextStyleHashCode
       value: -1183493901
-      objectReference: {fileID: 0}
-    - target: {fileID: 9072802649888239797, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
-        type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ecf50c2e5327b4d91d2afaf9ea6722, type: 3}
@@ -4649,11 +4629,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Beach_Terrain_Sand_Floor_Raised
-      objectReference: {fileID: 0}
-    - target: {fileID: 6834383366240858724, guid: ef43b5646d01b2742951aec27509ac0a,
-        type: 3}
-      propertyPath: m_RenderingLayerMask
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef43b5646d01b2742951aec27509ac0a, type: 3}
