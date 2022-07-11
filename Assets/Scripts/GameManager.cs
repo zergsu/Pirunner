@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
 		{
             RestartGame();
         }
+
+        if (Input.GetKeyDown(KeyCode.G))
+            Settings();
     }
 
 
@@ -46,4 +49,9 @@ public class GameManager : MonoBehaviour
         loseScreen.SetActive(true);
 	}
 
+    void Settings()
+    {
+
+        settings.SetActive(!settings.activeInHierarchy);
+    }
 }
