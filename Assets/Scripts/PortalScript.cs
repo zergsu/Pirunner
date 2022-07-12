@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class PortalScript : MonoBehaviour
 {
-    [SerializeField] int level;
+    public int level;
     [SerializeField] float loadTime = 2;
     float inTime;
     bool playerIsInPortal;
