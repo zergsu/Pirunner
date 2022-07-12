@@ -24,9 +24,9 @@ public class GameUI : MonoBehaviour
         VelocityCalculate();
 
         if (player.moving)
-            playerSpeedText.text = "Speed: " + speed.ToString("F2");
+            playerSpeedText.text = "Speed: " + speed.ToString("F0");
         else
-            playerSpeedText.text = "Speed: " + 0.ToString("F2");
+            playerSpeedText.text = "Speed: " + 0.ToString("F0");
 
         timerText.text = "Time: " + timer.gameTime.ToString("F2");
     }

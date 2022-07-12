@@ -6,6 +6,7 @@ public class PortalNextLevel : MonoBehaviour
 {
     [SerializeField] GameObject twirlEffect;
 	[SerializeField] GameObject particleEffect;
+	[SerializeField] Timer timer;
 
 	private void Start()
 	{
@@ -16,5 +17,6 @@ public class PortalNextLevel : MonoBehaviour
         if (other.CompareTag("Player"))
             twirlEffect.SetActive(true);
 		    particleEffect.SetActive(true);
+		timer.canRun = false;
 	}
 }

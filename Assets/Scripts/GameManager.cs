@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 	{
         timer.ResetTime();
         player.transform.position = playerSpawn;
+        player.maxSpeed = player.moveSpeed; // resets the player bhop speed
         playerDied = false;
     }
 

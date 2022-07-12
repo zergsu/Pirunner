@@ -10,9 +10,12 @@ public class SoundManager : MonoBehaviour
 	[SerializeField] private Slider sfxSlider;
 	[SerializeField] private Slider musicSlider;
 
+	public Timer timer;
+
     public static SoundManager instance;
 
     [SerializeField] private AudioSource musicSource, effectsSource;
+	[SerializeField] private AudioClip music;
 
 	private void Awake()
 	{
@@ -31,6 +34,11 @@ public class SoundManager : MonoBehaviour
 	{
 		effectsSource.volume = sfxSlider.value;
 		musicSource.volume = musicSlider.value;
+
+		if(timer.justStarted == false)
+		{
+			//PlayMusic(music);
+		}
 	}
 
 
@@ -41,8 +49,7 @@ public class SoundManager : MonoBehaviour
 
     public void PlayMusic(AudioClip music)
 	{
-        musicSource.clip = music;
-        musicSource.Play();
+        musicSource.PlayOneShot(music);
 	}
 
 

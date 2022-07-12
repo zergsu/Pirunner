@@ -59,21 +59,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        // ground check
-        if(Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround))
-		{
-            grounded = true;
-            StartCoroutine(CanBunnyHop());// resets the max speed for bunny hopping
-        }
-		else { grounded = false; }
-        
-
-        MyInput();
+        GroundCheck();
+        PlayerInput();
         SpeedControl();
 
-        // handle drag
+        
         if (grounded)
-            rb.drag = groundDrag;
+		{
+            rb.drag = groundDrag;  // handle drag
+
+            if (horizontalInput == 0 && verticalInput == 0) 
+			{
+                rb.velocity = new Vector3(0, 0, 0);
+                transform.position = transform.position;
+            }
+        }
+            
         else
             rb.drag = 0;
     }
@@ -83,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
         MovePlayer();
     }
 
-    private void MyInput()
+    private void PlayerInput()
     {
         if (grounded)
         {
@@ -92,6 +93,7 @@ public class PlayerMovement : MonoBehaviour
         else horizontalInput = 0;
 
         verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal") * 0.1f;
 
         // when to jump
         if (Input.GetKey(KeyCode.Space) && readyToJump && grounded)
@@ -130,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        // limit velocity if needed
+        // limit velocity
         if (flatVel.magnitude > maxSpeed) // checks of the velocity is higher then the moveSpeed
         {
             Vector3 limitedVel = flatVel.normalized * maxSpeed; // creates limited velocity
@@ -144,12 +146,16 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+
         if(maxSpeed < maxSpeedCap)
 		{
             maxSpeed += 2;
 		}
         SoundManager.instance.PlaySound(jumpSound);
     }
+
+
+
     private void ResetJump()
     {
         readyToJump = true;
@@ -169,5 +175,17 @@ public class PlayerMovement : MonoBehaviour
     public void OnJumper(float jumpForce)
 	{
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+
+
+    private void GroundCheck()
+	{
+        if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround))
+        {
+            grounded = true;
+            StartCoroutine(CanBunnyHop());// resets the max speed for bunny hopping
+        }
+        else { grounded = false; }
     }
 }

@@ -18,7 +18,6 @@ public class PortalLevelSelect : MonoBehaviour
             twirlEffect.SetActive(true);
             trigger.SetActive(true);
         }
-
     }
 
     // Update is called once per frame

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Jumper : MonoBehaviour
 {
-	public float jumperForce = 30f;
+	public float jumperForce = 28f;
 
 	private void OnCollisionEnter(Collision other)
 	{
