@@ -9,6 +9,7 @@ public class TimeLineReset : MonoBehaviour
     [SerializeField] GameObject fadeFX;
 	[SerializeField] GameObject Timer;
 	[SerializeField] PlayableDirector Timeline;
+	[SerializeField] LevelMenu levelMenu;
 
 	[SerializeField] Vector3 camPosReset = new Vector3(-6f, 6.5f, -16.6f);
 
@@ -22,6 +23,11 @@ public class TimeLineReset : MonoBehaviour
 			Destroy(fadeFX);
 			Timer.SetActive(true);
 			Destroy(gameObject);
+			levelMenu.canOpen = true;
+		}
+		else if(Timeline.state == PlayState.Playing)
+		{
+			levelMenu.canOpen = false;
 		}
 	}
 }

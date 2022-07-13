@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 7872759810184535615}
   - component: {fileID: 7872759810184535612}
   - component: {fileID: 7872759810184535613}
+  - component: {fileID: 294883165502980324}
   m_Layer: 6
   m_Name: PlayerModel
   m_TagString: Player
@@ -145,6 +146,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &294883165502980324
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872759810184535611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7872759810239409186
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +171,6 @@ GameObject:
   - component: {fileID: 7872759810239409189}
   - component: {fileID: 7872759810239409188}
   - component: {fileID: 7872759810239409191}
-  - component: {fileID: 3974140029078324988}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -210,10 +224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d00567ece8bd7418f5a7b54b9f89e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSound: {fileID: 0}
   moveSpeed: 10
   sprinting: 0
   moving: 0
   onMovingPlatform: 0
+  onMud: 0
   groundDrag: 7
   jumpForce: 12
   jumpCooldown: 0.25
@@ -230,16 +246,3 @@ MonoBehaviour:
   grounded: 0
   orientation: {fileID: 7872759809947814331}
   rb: {fileID: 7872759810239409188}
---- !u!65 &3974140029078324988
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7872759810239409186}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}

@@ -7,10 +7,11 @@ using UnityEngine.SceneManagement;
 public class LevelMenu : MonoBehaviour
 {
     public GameObject SettingsMenu, Menu;
+    public bool canOpen = true;
 
 	void Update()
     {
-        if (!Menu.activeSelf && !SettingsMenu.activeSelf && GameManager.instance.gamePaused)
+        if (!Menu.activeSelf && !SettingsMenu.activeSelf && GameManager.instance.gamePaused && canOpen) 
         {
             PauseGame();
         }
