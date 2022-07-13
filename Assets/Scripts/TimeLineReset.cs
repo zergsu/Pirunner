@@ -25,6 +25,7 @@ public class TimeLineReset : MonoBehaviour
 			Destroy(gameObject);
 			levelMenu.canOpen = true;
 		}
+
 		else if(Timeline.state == PlayState.Playing)
 		{
 			levelMenu.canOpen = false;

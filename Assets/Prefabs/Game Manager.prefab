@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7087758196040760511}
   - component: {fileID: 7087758196040760481}
   - component: {fileID: 7087758196040760480}
+  - component: {fileID: 2176222021048617269}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -48,6 +49,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 0}
   player: {fileID: 0}
+  cam: {fileID: 0}
+  loseScreen: {fileID: 0}
+  settings: {fileID: 0}
+  playerDied: 0
+  playerWon: 0
+  gamePaused: 0
+  playerSpawn: {x: 0, y: 0, z: 0}
 --- !u!114 &7087758196040760481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,8 +69,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 0}
-  playerSpeedText: {fileID: 0}
-  player: {fileID: 0}
   timer: {fileID: 7087758196040760480}
 --- !u!114 &7087758196040760480
 MonoBehaviour:
@@ -79,4 +85,17 @@ MonoBehaviour:
   resetedTime: 0
   gameTime: 0
   justStarted: 0
+  canRun: 0
   player: {fileID: 0}
+--- !u!114 &2176222021048617269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087758196040760508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ba8986cd880034d93df69acf9a5238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
