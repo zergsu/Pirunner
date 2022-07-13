@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
 
 
 
@@ -77,11 +77,6 @@ public class GameManager : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1;
     }
-
-    public void BackToMenu()
-	{
-        SceneManager.LoadScene(0);
-	}
 
     private void Lose()
 	{

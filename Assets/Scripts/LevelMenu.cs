@@ -46,9 +46,20 @@ public class LevelMenu : MonoBehaviour
         Menu.SetActive(true);
     }
 
+    public void RestartLevel()
+    {
+        GameManager.instance.RestartLevel();
+    }
+
     public void QuitLevel()
 	{
+        GameManager.instance.gamePaused = false;
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
 	}
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }
