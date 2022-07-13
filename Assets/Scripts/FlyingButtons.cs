@@ -9,7 +9,7 @@ using DG.Tweening;
 public class FlyingButtons : MonoBehaviour
 {
 
-    [SerializeField] Button[] buttons;
+    [SerializeField] GameObject[] elements;
     [SerializeField] float tweenDur;
 
     float screenPart = Screen.height / 6;
@@ -23,9 +23,9 @@ public class FlyingButtons : MonoBehaviour
 
     private void OnEnable()
     {
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < elements.Length; i++)
         {
-            buttons[i].transform.position = hidingPos;
+            elements[i].transform.position = hidingPos;
         }
 
         StartCoroutine(DelayTween());
@@ -35,10 +35,10 @@ public class FlyingButtons : MonoBehaviour
     IEnumerator DelayTween()
     {
         //go through every button and tween it to a position on the canvas, each button is lower, and with a small delay
-        for (int i = 0; i < buttons.Length; i++)
+        for (int i = 0; i < elements.Length; i++)
         {
-            buttons[i].transform.DOMove(new Vector3(transform.position.x, transform.position.y + screenPart - (screenPart * i), 0), tweenDur);
-            yield return new WaitForSeconds(0.1f);
+            elements[i].transform.DOMove(new Vector3(transform.position.x, transform.position.y + screenPart - (screenPart * i), 0), tweenDur).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(0.1f);
         }
     }
 }
