@@ -17,5 +17,6 @@ public class PortalNextLevel : MonoBehaviour
         if (other.CompareTag("Player"))
             twirlEffect.SetActive(true);
 		    particleEffect.SetActive(true);
+		GameManager.instance.playerWon = true;
 	}
 }
