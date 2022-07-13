@@ -67,12 +67,15 @@ public class GameManager : MonoBehaviour
 
 
     public void RestartLevel()
-	{
-        Time.timeScale = 1;
+    {
         timer.ResetTime();
         player.transform.position = playerSpawn;
         player.maxSpeed = player.moveSpeed; // resets the player bhop speed
+        loseScreen.SetActive(false);
         playerDied = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1;
     }
 
     public void BackToMenu()

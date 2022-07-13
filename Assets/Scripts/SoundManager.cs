@@ -32,8 +32,8 @@ public class SoundManager : MonoBehaviour
 
 	private void Update()
 	{
-		effectsSource.volume = sfxSlider.value;
-		musicSource.volume = musicSlider.value;
+		//effectsSource.volume = sfxSlider.value;
+		//musicSource.volume = musicSlider.value;
 
 		if(timer.justStarted == false)
 		{
