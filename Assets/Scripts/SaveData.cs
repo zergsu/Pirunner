@@ -52,7 +52,7 @@ public class SaveData : MonoBehaviour
             Load();
     }
 
-    public void Save()
+    static public void Save()
     {
         string savePath = path;
 
@@ -72,10 +72,10 @@ public class SaveData : MonoBehaviour
 
         scoreData = JsonUtility.FromJson<ScoreData>(json);
 
-        // log loaded items
-        //foreach (LevelData item in data.level)
+        //log loaded items
+        //foreach (LevelData item in scoreData.level[0])
         //{
-        //    Debug.Log(item.unlocked + " " + item.high1 + " " + item.high2 + " " + item.high3);
+        Debug.Log(scoreData.level[0].unlocked + " " + scoreData.level[0].high1 + " " + scoreData.level[0].high2 + " " + scoreData.level[0].high3);
 
         //}
     }
@@ -85,12 +85,41 @@ public class SaveData : MonoBehaviour
         return scoreData.level[lev];
     }
 
-    static public void SaveNewScore(float h1, float h2, float h3)
+    static void SaveNewScore(float h1, float h2, float h3)
     {
         LevelData lev = scoreData.level[SceneManager.GetActiveScene().buildIndex - 1];
         lev.high1 = h1;
         lev.high2 = h2;
         lev.high3 = h3;
+        Save();
+    }
+
+    static public void CheckScore(float newTime)
+    {
+        LevelData lev = scoreData.level[SceneManager.GetActiveScene().buildIndex - 1];
+
+        if (newTime < lev.high3)
+        {
+            lev.high3 = lev.high2;
+            if (newTime < lev.high2)
+            {
+                lev.high2 = lev.high1;
+                if (newTime < lev.high1)
+                {
+                    lev.high1 = newTime;
+                }
+                else lev.high2 = newTime;
+            }
+            else lev.high3 = newTime;
+            SaveNewScore(lev.high1, lev.high2, lev.high3);
+        }
+    }
+
+    //unlocks the next level
+    static public void UnlockNextLevel()
+    {
+        if (SceneManager.GetActiveScene().buildIndex != 4)
+            scoreData.level[SceneManager.GetActiveScene().buildIndex].unlocked = true;
     }
 
 }
