@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 297734870701040434}
   - component: {fileID: 297734870701040435}
   - component: {fileID: 297734870701040432}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: HigherStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12327,7 +12327,7 @@ GameObject:
   - component: {fileID: 297734872058424319}
   - component: {fileID: 297734872058424316}
   - component: {fileID: 297734872058424317}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LowerStep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
