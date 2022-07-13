@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelMenu : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class LevelMenu : MonoBehaviour
     {
         if (GameManager.instance.gamePaused)
 		{
-            Time.timeScale = 0;
-            Menu.SetActive(true);
+			Time.timeScale = 0;
+			Menu.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -38,4 +39,10 @@ public class LevelMenu : MonoBehaviour
         SettingsMenu.SetActive(false);
         Menu.SetActive(true);
     }
+
+    public void QuitLevel()
+	{
+        SceneManager.LoadScene(0);
+        Time.timeScale = 1;
+	}
 }
