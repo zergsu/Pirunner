@@ -7,7 +7,7 @@ using TMPro;
 public class PortalScore : MonoBehaviour
 {
     public TextMeshPro text;
-    int a, b, c;
+    public float a, b, c;
     // Start is called before the first frame update
     void Start()
     {

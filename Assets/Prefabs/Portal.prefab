@@ -56,7 +56,7 @@ MonoBehaviour:
   twirlEffect: {fileID: 297734870662999546}
   trigger: {fileID: 297734870993650453}
   Header: {fileID: 5134415694293504582}
-  Score: {fileID: 3361387638793415631}
+  Score: {fileID: 4782724246146785229}
 --- !u!135 &4678287448718546930
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -13021,3 +13021,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 382078174332749660}
+  a: 0
+  b: 0
+  c: 0

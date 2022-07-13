@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
 		{
             maxSpeed += 2;
 		}
-        SoundManager.instance.PlaySound(jumpSound);
+        // SoundManager.instance.PlaySound(jumpSound);
     }
 
 

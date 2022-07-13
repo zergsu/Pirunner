@@ -5,23 +5,20 @@ using TMPro;
 
 public class PortalLevelSelect : MonoBehaviour
 {
+    LevelData data;
     [SerializeField] bool levelUnlocked;
     [SerializeField] GameObject twirlEffect;
     [SerializeField] PortalScript trigger;
     [SerializeField] TextMeshPro Header;
-    [SerializeField] GameObject Score;
+    [SerializeField] PortalScore Score;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (levelUnlocked)
-        {
-            twirlEffect.SetActive(true);
-            trigger.gameObject.SetActive(true);
-        }
         switch (trigger.level)
         {
             case < 5:
+                LoadPortalData();
                 Header.text = ("Level " + trigger.level);
                 break;
             case 5:
@@ -31,21 +28,30 @@ public class PortalLevelSelect : MonoBehaviour
                 Header.text = ("To Be Continued");
                 break;
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (levelUnlocked)
+        {
+            twirlEffect.SetActive(true);
+            trigger.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Score.SetActive(true);
+        Score.gameObject.SetActive(true);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Score.SetActive(false);
+        Score.gameObject.SetActive(false);
+    }
+
+    private void LoadPortalData()
+    {
+        data = SaveData.Load2(trigger.level - 1);
+        levelUnlocked = data.unlocked;
+        Score.a = data.high1;
+        Score.b = data.high2;
+        Score.c = data.high3;
     }
 }
