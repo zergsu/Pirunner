@@ -8,30 +8,36 @@ public class LevelMenu : MonoBehaviour
 {
     public GameObject SettingsMenu, Menu;
 
-    void Update()
+	void Update()
     {
-        if (GameManager.instance.gamePaused)
-		{
-			Time.timeScale = 0;
-			Menu.SetActive(true);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+        if (!Menu.activeSelf && !SettingsMenu.activeSelf && GameManager.instance.gamePaused)
+        {
+            PauseGame();
         }
+    }
+
+
+    public void PauseGame()
+	{
+        Time.timeScale = 0;
+        Menu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ResumeGame()
 	{
-        Menu.SetActive(false);
-        Time.timeScale = 1;
         GameManager.instance.gamePaused = false;
+        Time.timeScale = 1;
+        Menu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
     public void Settings()
 	{
-        Menu.SetActive(false);
         SettingsMenu.SetActive(true);
+        Menu.SetActive(false); 
 	}
 
     public void BackToMenu()

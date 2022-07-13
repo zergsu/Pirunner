@@ -12,6 +12,7 @@ public class PortalNextLevel : MonoBehaviour
 	{
 		twirlEffect.SetActive(false);
 	}
+
 	private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

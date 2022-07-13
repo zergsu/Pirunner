@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public bool sprinting;
     public bool moving;
     public bool onMovingPlatform;
+    public bool onMud;
 
 
     public float groundDrag;
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
         readyToJump = true;
         onMovingPlatform = false;
         maxSpeed = moveSpeed;
+        onMud = false;
     }
 
     private void Update()
@@ -103,7 +105,10 @@ public class PlayerMovement : MonoBehaviour
         {
             readyToJump = false;
 
-            Jump();
+            if(!onMud)
+			{
+                Jump();
+            }
 
             Invoke(nameof(ResetJump), jumpCooldown);
         }
@@ -150,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
-        if(maxSpeed < maxSpeedCap)
+        if (maxSpeed < maxSpeedCap && verticalInput != 0) 
 		{
             maxSpeed += 2;
 		}
@@ -175,13 +180,6 @@ public class PlayerMovement : MonoBehaviour
             
 	}
 
-    public void OnJumper(float jumpForce)
-	{
-        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-    }
-
-
-
     private void GroundCheck()
 	{
         if (Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround))
@@ -191,4 +189,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else { grounded = false; }
     }
+
+
+    public void OnJumper(float jumpForce)
+    {
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
 }
