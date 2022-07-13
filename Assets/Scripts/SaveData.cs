@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class SaveData : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class SaveData : MonoBehaviour
     }
     private void Start()
     {
+
     }
 
     private void CreateSave()
@@ -70,6 +72,7 @@ public class SaveData : MonoBehaviour
 
         scoreData = JsonUtility.FromJson<ScoreData>(json);
 
+        // log loaded items
         //foreach (LevelData item in data.level)
         //{
         //    Debug.Log(item.unlocked + " " + item.high1 + " " + item.high2 + " " + item.high3);
@@ -79,17 +82,15 @@ public class SaveData : MonoBehaviour
 
     static public LevelData Load2(int lev)
     {
-        //using StreamReader reader = new StreamReader(path);
-        //string json = reader.ReadToEnd();
-
-        //ScoreData data = JsonUtility.FromJson<ScoreData>(json);
-
         return scoreData.level[lev];
     }
 
-    public void LoadLevelData(int level)
+    static public void SaveNewScore(float h1, float h2, float h3)
     {
-
+        LevelData lev = scoreData.level[SceneManager.GetActiveScene().buildIndex - 1];
+        lev.high1 = h1;
+        lev.high2 = h2;
+        lev.high3 = h3;
     }
 
 }

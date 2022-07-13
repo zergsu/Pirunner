@@ -17,6 +17,31 @@ public class PortalScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (Input.GetKeyDown(KeyCode.L))
+        //{
+        //    CheckScore(1.5f);
+        //    SaveData.SaveNewScore(a, b, c);
+        //}
+
+    }
+
+    void CheckScore(float newTime)
+    {
+        if (newTime < c)
+        {
+            c = b;
+            if (newTime < b)
+            {
+                b = a;
+                if (newTime < a)
+                {
+                    a = newTime;
+                }
+                else b = newTime;
+            }
+            else c = newTime;
+            
+        }
+        Debug.Log(a+""+ b+""+ c);
     }
 }
