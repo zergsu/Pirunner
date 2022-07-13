@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     public PlayerCam cam;
 
     [Header("Screens")]
-    public GameObject loseScreen;
     public GameObject settings;
 
     [Header("Var")]
@@ -50,14 +49,6 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(playerDied)
-		{
-            Lose();
-        }
-        if (playerWon)
-		{
-
-		}
         if (Input.GetKeyDown(KeyCode.Escape) && !gamePaused && !playerDied) 
 		{
             gamePaused = true;
@@ -71,19 +62,10 @@ public class GameManager : MonoBehaviour
         timer.ResetTime();
         player.transform.position = playerSpawn;
         player.maxSpeed = player.moveSpeed; // resets the player bhop speed
-        loseScreen.SetActive(false);
         playerDied = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
-    }
-
-    private void Lose()
-	{
-        Time.timeScale = 0;
-        loseScreen.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
     }
 
 }

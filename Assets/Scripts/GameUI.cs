@@ -17,4 +17,5 @@ public class GameUI : MonoBehaviour
     {
         timerText.text = "Time: " + timer.gameTime.ToString("F2");
     }
+
 }

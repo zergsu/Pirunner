@@ -15540,6 +15540,7 @@ MonoBehaviour:
   sfxSlider: {fileID: 1992151661}
   musicSlider: {fileID: 703102517}
   timer: {fileID: 0}
+  levelStarted: 0
   musicSource: {fileID: 942030721}
   effectsSource: {fileID: 1547322354}
   music: {fileID: 0}
@@ -101849,6 +101850,11 @@ PrefabInstance:
       propertyPath: levelMenu
       value: 
       objectReference: {fileID: 773369145}
+    - target: {fileID: 6273748795198647457, guid: 401888197c1be8c4aaa4d23a45daabbc,
+        type: 3}
+      propertyPath: soundManager
+      value: 
+      objectReference: {fileID: 254926439}
     - target: {fileID: 6273748795198647458, guid: 401888197c1be8c4aaa4d23a45daabbc,
         type: 3}
       propertyPath: m_RootOrder
@@ -101997,6 +102003,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 863804979399016926, guid: 7f17d510e06bd174bb91392cfc91449c,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1888998734}
     - target: {fileID: 8282108049675782771, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_IsActive
@@ -102011,7 +102022,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 773369145}
     - target: {fileID: 8282108051569490037, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -102020,7 +102031,7 @@ PrefabInstance:
     - target: {fileID: 8282108051569490037, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Buttons, Assembly-CSharp
+      value: LevelMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8282108051580471815, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
@@ -102156,16 +102167,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 773369145}
     - target: {fileID: 8282108051741916596, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackToMenu
+      value: QuitLevel
       objectReference: {fileID: 0}
     - target: {fileID: 8282108051741916596, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Buttons, Assembly-CSharp
+      value: LevelMenu, Assembly-CSharp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f17d510e06bd174bb91392cfc91449c, type: 3}

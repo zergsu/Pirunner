@@ -11,6 +11,7 @@ public class SoundManager : MonoBehaviour
 	[SerializeField] private Slider musicSlider;
 
 	public Timer timer;
+	public bool levelStarted = false;
 
     public static SoundManager instance;
 
@@ -35,7 +36,7 @@ public class SoundManager : MonoBehaviour
 		//effectsSource.volume = sfxSlider.value;
 		//musicSource.volume = musicSlider.value;
 
-		if(timer.justStarted == false)
+		if(levelStarted)
 		{
 			//PlayMusic(music);
 		}

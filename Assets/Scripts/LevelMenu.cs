@@ -6,8 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class LevelMenu : MonoBehaviour
 {
+
+    [SerializeField] GameObject loseScreen;
     public GameObject SettingsMenu, Menu;
-    public bool canOpen = true;
+    public bool canOpen;
+
+	private void Start()
+	{
+		if(SceneManager.GetActiveScene().buildIndex == 0)
+		{
+            canOpen = true;
+		}
+        else
+		{
+            canOpen = false;
+		}
+	}
 
 	void Update()
     {
@@ -15,6 +29,10 @@ public class LevelMenu : MonoBehaviour
         {
             PauseGame();
         }
+        if(GameManager.instance.playerDied)
+		{
+            Lose();
+		}
     }
 
 
@@ -49,6 +67,7 @@ public class LevelMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        loseScreen.SetActive(false);
         GameManager.instance.RestartLevel();
     }
 
@@ -62,5 +81,14 @@ public class LevelMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+
+    private void Lose()
+    {
+        Time.timeScale = 0;
+        loseScreen.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
