@@ -94,10 +94,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 horizontalInput = Input.GetAxisRaw("Horizontal");
             }
-            else horizontalInput = 0;
+            else horizontalInput = Input.GetAxisRaw("Horizontal") * 0.1f;
 
             verticalInput = Input.GetAxisRaw("Vertical");
-            horizontalInput = Input.GetAxisRaw("Horizontal") * 0.1f;
         }
 
         
@@ -119,10 +118,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        // calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput; // calculate movement direction
 
-        // on ground
         if (grounded)
             if (sprinting)
                 rb.AddForce(moveDirection.normalized * (moveSpeed * 3.5f) * 10f, ForceMode.Force);
