@@ -3581,7 +3581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loseScreen: {fileID: 8282108051144450932}
-  SettingsMenu: {fileID: 8282108051492695698}
+  SettingsMenu: {fileID: 8282108050517381894}
   Menu: {fileID: 8282108050494265861}
   canOpen: 1
 --- !u!114 &3729854150006098369

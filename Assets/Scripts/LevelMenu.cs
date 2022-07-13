@@ -27,6 +27,7 @@ public class LevelMenu : MonoBehaviour
     {
         if (!Menu.activeSelf && !SettingsMenu.activeSelf && GameManager.instance.gamePaused && canOpen) 
         {
+            Debug.Log(true);
             PauseGame();
         }
         if(GameManager.instance.playerDied)
