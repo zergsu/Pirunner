@@ -42,7 +42,9 @@ public class Timer : MonoBehaviour
 
     public void ResetTime()
     {
+        gameTime = 0;
         resetedTime = Time.time;
+        canRun = false;
         justStarted = true;
     }
 }
