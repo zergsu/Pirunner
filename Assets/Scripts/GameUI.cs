@@ -15,6 +15,9 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        timerText.text = "Time: " + timer.gameTime.ToString("F2");
+        if(!GameManager.instance.playerDied || !GameManager.instance.playerWon)
+		{
+            timerText.text = "Time: " + timer.gameTime.ToString("F2");
+        }
     }
 }

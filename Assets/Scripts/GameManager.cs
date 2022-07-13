@@ -1,9 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
+
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     [Header("Refferences")]
     public Timer timer;
@@ -15,12 +32,14 @@ public class GameManager : MonoBehaviour
     public GameObject settings;
 
     public bool playerDied;
+    public bool playerWon;
 
     public Vector3 playerSpawn;
 
     void Start()
     {
         playerDied = false;
+        playerWon = false;
         playerSpawn = player.transform.position;
     }
 
@@ -28,22 +47,30 @@ public class GameManager : MonoBehaviour
     {
         if(playerDied)
 		{
-            RestartGame();
+            Lose();
         }
+        if(playerWon)
+		{
 
         if (Input.GetKeyDown(KeyCode.G))
             Settings();
+		}
     }
 
 
 
-    public void RestartGame()
+    public void RestartLevel()
 	{
         timer.ResetTime();
         player.transform.position = playerSpawn;
         player.maxSpeed = player.moveSpeed; // resets the player bhop speed
         playerDied = false;
     }
+
+    public void BackToMenu()
+	{
+        SceneManager.LoadScene(0);
+	}
 
     private void Lose()
 	{

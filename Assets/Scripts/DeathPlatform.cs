@@ -5,13 +5,11 @@ using UnityEngine;
 public class DeathPlatform : MonoBehaviour
 {
 
-    public GameManager gameManager;
-    
 	private void OnCollisionEnter(Collision other)
 	{
         if (other.gameObject.CompareTag("Player"))
 		{
-            gameManager.playerDied = true;
+            GameManager.instance.playerDied = true;
             Debug.Log("Lost");
 		}
 	}

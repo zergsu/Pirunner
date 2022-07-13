@@ -86,17 +86,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayerInput()
     {
-        if (grounded)
-        {
-            horizontalInput = Input.GetAxisRaw("Horizontal");
+        if(!GameManager.instance.playerDied)
+		{
+            if (grounded)
+            {
+                horizontalInput = Input.GetAxisRaw("Horizontal");
+            }
+            else horizontalInput = 0;
+
+            verticalInput = Input.GetAxisRaw("Vertical");
+            horizontalInput = Input.GetAxisRaw("Horizontal") * 0.1f;
         }
-        else horizontalInput = 0;
 
-        verticalInput = Input.GetAxisRaw("Vertical");
-        horizontalInput = Input.GetAxisRaw("Horizontal") * 0.1f;
-
-        // when to jump
-        if (Input.GetKey(KeyCode.Space) && readyToJump && grounded)
+        
+        if (Input.GetKey(KeyCode.Space) && readyToJump && grounded) // when to jump
         {
             readyToJump = false;
 
@@ -151,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
 		{
             maxSpeed += 2;
 		}
-        // SoundManager.instance.PlaySound(jumpSound);
+        SoundManager.instance.PlaySound(jumpSound);
     }
 
 

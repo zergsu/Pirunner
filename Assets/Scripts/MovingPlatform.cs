@@ -8,7 +8,6 @@ public class MovingPlatform : MonoBehaviour
     public GameObject PlayerModel;
     public GameObject PlayerPos;
     public PlayerMovement Player;
-    public GameManager gameManager;
 
 
     public bool playerOnPlatform = false;
@@ -96,7 +95,7 @@ public class MovingPlatform : MonoBehaviour
             }
         }
 
-        if(gameManager.playerDied)
+        if(GameManager.instance.playerDied)
 		{
             ResetPlayer();
         }
