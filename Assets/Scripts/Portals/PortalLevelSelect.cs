@@ -17,16 +17,17 @@ public class PortalLevelSelect : MonoBehaviour
     {
         switch (trigger.level)
         {
+            case 0:
+                Header.text = ("Level Select");
+                break;
             case < 5:
                 LoadPortalData();
                 Header.text = ("Level " + trigger.level);
                 break;
-            case 5:
-                Header.text = ("Level Select");
-                break;
-            case > 5:
+            case > 4:
                 Header.text = ("To Be Continued");
                 break;
+                
         }
 
         if (levelUnlocked)

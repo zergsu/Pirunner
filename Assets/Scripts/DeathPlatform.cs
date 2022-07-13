@@ -10,7 +10,6 @@ public class DeathPlatform : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
 		{
             GameManager.instance.playerDied = true;
-            Debug.Log("Lost");
 		}
 	}
 }

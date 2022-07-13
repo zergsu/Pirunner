@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public float resetedTime = 0;
     public float gameTime;
     public bool justStarted;
+    public bool canRun;
 
     [Header("Refferences")]
     public PlayerMovement player;
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
 	private void Start()
 	{
         justStarted = true;
+        canRun = false;
 	}
 
 	void Update()
@@ -27,9 +29,12 @@ public class Timer : MonoBehaviour
             {
                 resetedTime = Time.time;
                 justStarted = false;
+                canRun = true;
+                
             }
         }
-        if(!GameManager.instance.playerDied || !GameManager.instance.playerWon)
+
+        if((!GameManager.instance.playerDied || !GameManager.instance.playerWon) && canRun)
 		{
             gameTime = Time.time - resetedTime;
         }

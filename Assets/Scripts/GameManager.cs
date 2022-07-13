@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
     [Header("Refferences")]
     public Timer timer;
     public PlayerMovement player;
@@ -31,8 +33,10 @@ public class GameManager : MonoBehaviour
     public GameObject loseScreen;
     public GameObject settings;
 
+    [Header("Var")]
     public bool playerDied;
     public bool playerWon;
+    public bool gamePaused;
 
     public Vector3 playerSpawn;
 
@@ -40,6 +44,7 @@ public class GameManager : MonoBehaviour
     {
         playerDied = false;
         playerWon = false;
+        gamePaused = false;
         playerSpawn = player.transform.position;
     }
 
@@ -49,11 +54,13 @@ public class GameManager : MonoBehaviour
 		{
             Lose();
         }
-        if(playerWon)
+        if (playerWon)
 		{
 
-        if (Input.GetKeyDown(KeyCode.G))
-            Settings();
+		}
+        if (Input.GetKeyDown(KeyCode.Escape) && !gamePaused && !playerDied) 
+		{
+            gamePaused = true;
 		}
     }
 
@@ -61,6 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
 	{
+        Time.timeScale = 1;
         timer.ResetTime();
         player.transform.position = playerSpawn;
         player.maxSpeed = player.moveSpeed; // resets the player bhop speed
@@ -74,11 +82,10 @@ public class GameManager : MonoBehaviour
 
     private void Lose()
 	{
+        Time.timeScale = 0;
         loseScreen.SetActive(true);
-	}
-
-    void Settings()
-    {
-        settings.SetActive(!settings.activeInHierarchy);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
+
 }

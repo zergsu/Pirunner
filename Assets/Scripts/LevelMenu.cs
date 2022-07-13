@@ -1,18 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject SettingsMenu, Menu;
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.instance.gamePaused)
+		{
+            Time.timeScale = 0;
+            Menu.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+    }
+
+    public void ResumeGame()
+	{
+        Menu.SetActive(false);
+        Time.timeScale = 1;
+        GameManager.instance.gamePaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
+    public void Settings()
+	{
+        Menu.SetActive(false);
+        SettingsMenu.SetActive(true);
+	}
+
+    public void BackToMenu()
+	{
+        SettingsMenu.SetActive(false);
+        Menu.SetActive(true);
     }
 }
