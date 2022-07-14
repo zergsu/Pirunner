@@ -18,7 +18,7 @@ public class TimeLineReset : MonoBehaviour
 
 	private void Update()
 	{
-		if(Timeline.state !=PlayState.Playing)
+		if (Timeline.state !=PlayState.Playing)
 		{
 			SoundManager.instance.PlayMusic();
 			camPos.transform.position = camPosReset;

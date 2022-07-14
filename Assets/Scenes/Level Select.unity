@@ -739,6 +739,11 @@ PrefabInstance:
       propertyPath: level
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1436496706198592193, guid: e548f2822cc401a4abfd5d0636099ecb,
+        type: 3}
+      propertyPath: sliders
+      value: 
+      objectReference: {fileID: 1615376610}
     - target: {fileID: 1436496707262575144, guid: e548f2822cc401a4abfd5d0636099ecb,
         type: 3}
       propertyPath: m_Mesh
@@ -9577,6 +9582,11 @@ PrefabInstance:
       propertyPath: level
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1436496706198592193, guid: e548f2822cc401a4abfd5d0636099ecb,
+        type: 3}
+      propertyPath: sliders
+      value: 
+      objectReference: {fileID: 1615376610}
     - target: {fileID: 1436496707262575144, guid: e548f2822cc401a4abfd5d0636099ecb,
         type: 3}
       propertyPath: m_Mesh
@@ -10759,7 +10769,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
+      objectReference: {fileID: 8300000, guid: 475f4837af487ce4a9e68bb227455e4c, type: 3}
     - target: {fileID: 2816676543315916781, guid: c9431888711f75d49b4ad2bfb35ab167,
         type: 3}
       propertyPath: m_PlayOnAwake
@@ -13869,6 +13879,11 @@ PrefabInstance:
       propertyPath: level
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1436496706198592193, guid: e548f2822cc401a4abfd5d0636099ecb,
+        type: 3}
+      propertyPath: sliders
+      value: 
+      objectReference: {fileID: 1615376610}
     - target: {fileID: 1436496707262575144, guid: e548f2822cc401a4abfd5d0636099ecb,
         type: 3}
       propertyPath: m_Mesh
@@ -21709,6 +21724,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83006f4ead4b8bb40980f65b33bf5161, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1615376610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6655906242558469396, guid: 7f17d510e06bd174bb91392cfc91449c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1615376606}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1309fe02dc15ab54ba41237d3c0c51ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1624965800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28146,6 +28173,11 @@ PrefabInstance:
       propertyPath: level
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1436496706198592193, guid: e548f2822cc401a4abfd5d0636099ecb,
+        type: 3}
+      propertyPath: sliders
+      value: 
+      objectReference: {fileID: 1615376610}
     - target: {fileID: 1436496706198592223, guid: e548f2822cc401a4abfd5d0636099ecb,
         type: 3}
       propertyPath: m_Layer
