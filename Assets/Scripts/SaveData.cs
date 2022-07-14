@@ -14,7 +14,7 @@ public class SaveData : MonoBehaviour
     private void Awake()
     {
         SetPaths();
-        if (File.Exists(path))
+        if (File.Exists(persistentPath))
             Load();
         else
             CreateSave();
