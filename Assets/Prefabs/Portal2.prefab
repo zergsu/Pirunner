@@ -2065,4 +2065,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: -1
-  loadTime: 2
+  loadTime: 1.3

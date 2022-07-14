@@ -29,6 +29,7 @@ public class PortalNextLevel : MonoBehaviour
 			{
                 SoundManager.instance.PlaySound(victorySound);
                 notPlayedSound = false;
+                SoundManager.instance.musicSource.Stop();
 			}
             SaveData.CheckScore(timer.gameTime);
             SaveData.UnlockNextLevel();

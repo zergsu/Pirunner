@@ -160,7 +160,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-
     private void ResetJump()
     {
         readyToJump = true;
@@ -169,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator CanBunnyHop()
 	{
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.3f);
             if(grounded)
 		{
             maxSpeed = moveSpeed;

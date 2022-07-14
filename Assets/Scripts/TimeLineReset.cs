@@ -20,6 +20,7 @@ public class TimeLineReset : MonoBehaviour
 	{
 		if(Timeline.state !=PlayState.Playing)
 		{
+			SoundManager.instance.PlayMusic();
 			camPos.transform.position = camPosReset;
 			camPos.transform.rotation = Quaternion.Euler(0, 0, 0);
 			Destroy(fadeFX);
@@ -30,6 +31,7 @@ public class TimeLineReset : MonoBehaviour
 
 		else if(Timeline.state == PlayState.Playing)
 		{
+			SoundManager.instance.musicSource.Stop();
 			GameManager.instance.playerWon = false;
 			levelMenu.canOpen = false;
 		}

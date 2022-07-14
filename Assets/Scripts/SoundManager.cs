@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour
     public static SoundManager instance;
 
     public AudioSource musicSource, effectsSource, oceanSource;
+	public bool musicPlaying = false;
 
 	public bool notDiedYet = true;
 
@@ -34,5 +35,18 @@ public class SoundManager : MonoBehaviour
 	public void PlaySound(AudioClip clip)
 	{
         effectsSource.PlayOneShot(clip);
+	}
+
+	public void PlayMusic()
+	{
+		if (!musicPlaying)
+		{
+			musicSource.Play();
+			musicPlaying = true;
+		}
+	}
+	private void OnLevelWasLoaded()
+	{
+		musicPlaying = false;
 	}
 }
