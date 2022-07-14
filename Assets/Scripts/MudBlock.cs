@@ -13,7 +13,7 @@ public class MudBlock : MonoBehaviour
 		if(other.gameObject.CompareTag("Player"))
 		{
 			playerCurrentSpeed = player.moveSpeed;
-			player.moveSpeed -= 5f;
+			player.moveSpeed -= 2f;
 			player.onMud = true;
 		}
 	}

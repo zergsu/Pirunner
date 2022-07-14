@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
 
-        if (maxSpeed < maxSpeedCap && verticalInput != 0) 
+        if (maxSpeed < maxSpeedCap && verticalInput != 0)  
 		{
             maxSpeed += 2;
 		}

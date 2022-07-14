@@ -21,10 +21,6 @@ public class SaveData : MonoBehaviour
             CreateSave();
 
     }
-    private void Start()
-    {
-
-    }
 
     private void CreateSave()
     {
@@ -72,12 +68,7 @@ public class SaveData : MonoBehaviour
 
         scoreData = JsonUtility.FromJson<ScoreData>(json);
 
-        //log loaded items
-        //foreach (LevelData item in scoreData.level[0])
-        //{
         Debug.Log(scoreData.level[0].unlocked + " " + scoreData.level[0].high1 + " " + scoreData.level[0].high2 + " " + scoreData.level[0].high3);
-
-        //}
     }
 
     static public LevelData Load2(int lev)
@@ -119,7 +110,11 @@ public class SaveData : MonoBehaviour
     static public void UnlockNextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex != 4)
+		{
             scoreData.level[SceneManager.GetActiveScene().buildIndex].unlocked = true;
+            Save();
+        }
+
     }
 
 }

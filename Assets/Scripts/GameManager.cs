@@ -37,14 +37,12 @@ public class GameManager : MonoBehaviour
     public bool playerWon;
     public bool gamePaused;
 
-    public Vector3 playerSpawn;
 
     void Start()
     {
         playerDied = false;
         playerWon = false;
         gamePaused = false;
-        playerSpawn = player.transform.position;
     }
 
     void Update()
@@ -59,9 +57,6 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        timer.ResetTime();
-        player.transform.position = playerSpawn;
-        player.maxSpeed = player.moveSpeed; // resets the player bhop speed
         playerDied = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

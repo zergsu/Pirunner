@@ -21,8 +21,8 @@ public class PortalNextLevel : MonoBehaviour
 
             GameManager.instance.playerWon = true;
             
-            Debug.Log(GameManager.instance.timer.gameTime);
-            SaveData.CheckScore(GameManager.instance.timer.gameTime);
+            Debug.Log(timer.gameTime);
+            SaveData.CheckScore(timer.gameTime);
             SaveData.UnlockNextLevel();
         }
     }

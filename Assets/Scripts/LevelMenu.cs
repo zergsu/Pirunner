@@ -8,10 +8,16 @@ public class LevelMenu : MonoBehaviour
 {
 
     [SerializeField] GameObject loseScreen;
+    [SerializeField] Timer timer;
+
+    [SerializeField] PlayerMovement player;
+
     public GameObject SettingsMenu, Menu;
     public bool canOpen;
 
-	private void Start()
+    public Vector3 playerSpawn;
+
+    private void Start()
 	{
 		if(SceneManager.GetActiveScene().buildIndex == 0)
 		{
@@ -21,7 +27,9 @@ public class LevelMenu : MonoBehaviour
 		{
             canOpen = false;
 		}
-	}
+        playerSpawn = player.transform.position;
+        
+}
 
 	void Update()
     {
@@ -68,12 +76,17 @@ public class LevelMenu : MonoBehaviour
 
     public void RestartLevel()
     {
+        player.transform.position = playerSpawn;
+        player.maxSpeed = player.moveSpeed; // resets the player bhop speed
+        timer.ResetTime();
         loseScreen.SetActive(false);
         GameManager.instance.RestartLevel();
     }
 
     public void QuitLevel()
 	{
+        loseScreen.SetActive(false);
+        GameManager.instance.playerDied = false;
         GameManager.instance.gamePaused = false;
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
