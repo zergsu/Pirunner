@@ -27,6 +27,7 @@ public class TimeLineReset : MonoBehaviour
 			Timer.SetActive(true);
 			Destroy(gameObject);
 			levelMenu.canOpen = true;
+			GameManager.instance.inTimeLine = false;
 		}
 
 		else if(Timeline.state == PlayState.Playing)
@@ -34,6 +35,7 @@ public class TimeLineReset : MonoBehaviour
 			SoundManager.instance.musicSource.Stop();
 			GameManager.instance.playerWon = false;
 			levelMenu.canOpen = false;
+			GameManager.instance.inTimeLine = true;
 		}
 	}
 }

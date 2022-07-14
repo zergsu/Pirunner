@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public bool playerWon;
     public bool gamePaused;
     public bool notPlayedSound;
+    public bool inTimeLine;
 
 
     void Start()
@@ -44,6 +45,7 @@ public class GameManager : MonoBehaviour
         playerDied = false;
         playerWon = false;
         gamePaused = false;
+        inTimeLine = false;
     }
 
     void Update()
