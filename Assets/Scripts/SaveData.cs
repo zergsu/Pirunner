@@ -18,7 +18,6 @@ public class SaveData : MonoBehaviour
             Load();
         else
             CreateSave();
-
     }
 
     private void CreateSave()
@@ -93,6 +92,7 @@ public class SaveData : MonoBehaviour
         }
     }
 
+
     static public void UnlockNextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex != 4)
@@ -119,3 +119,5 @@ public class LevelData
     public float high2 = 100;
     public float high3 = 100;
 }
+
+
