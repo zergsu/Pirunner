@@ -10743,6 +10743,90 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 730016237}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &734387559
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2816676543315916781, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.511
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676543315916781, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 90eae78e8ce85a849b5b0ca11b2de641, type: 3}
+    - target: {fileID: 2816676543315916781, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892808, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_Name
+      value: Sound Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -41.253353
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -83.447716
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.077286
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816676544138892809, guid: c9431888711f75d49b4ad2bfb35ab167,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c9431888711f75d49b4ad2bfb35ab167, type: 3}
 --- !u!1001 &734806277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21391,6 +21475,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 354871779}
+    - target: {fileID: 6655906242558469396, guid: 7f17d510e06bd174bb91392cfc91449c,
+        type: 3}
+      propertyPath: playerCam
+      value: 
+      objectReference: {fileID: 1668667288}
     - target: {fileID: 8282108049675782771, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_IsActive
@@ -21419,6 +21508,11 @@ PrefabInstance:
     - target: {fileID: 8282108050324308884, guid: 7f17d510e06bd174bb91392cfc91449c,
         type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8282108050338945298, guid: 7f17d510e06bd174bb91392cfc91449c,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8282108050402433729, guid: 7f17d510e06bd174bb91392cfc91449c,

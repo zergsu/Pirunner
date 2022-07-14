@@ -51,6 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twirlEffect: {fileID: 5577768213210116217}
+  particleEffect: {fileID: 0}
+  timer: {fileID: 0}
+  victorySound: {fileID: 8300000, guid: f2313ecf3d91eb74e84c0dcb2b5d533a, type: 3}
 --- !u!65 &1739541889712053189
 BoxCollider:
   m_ObjectHideFlags: 0

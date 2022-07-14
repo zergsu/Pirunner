@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     public bool playerDied;
     public bool playerWon;
     public bool gamePaused;
+    public bool notPlayedSound;
 
 
     void Start()

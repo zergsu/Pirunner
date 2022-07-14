@@ -10,10 +10,13 @@ public class LevelMenu : MonoBehaviour
     [SerializeField] GameObject loseScreen;
     [SerializeField] Timer timer;
 
+    [SerializeField] AudioClip deathSound;
     [SerializeField] PlayerMovement player;
 
     public GameObject SettingsMenu, Menu;
     public bool canOpen;
+
+    private bool playedSound = false;
 
     public Vector3 playerSpawn;
 
@@ -28,8 +31,7 @@ public class LevelMenu : MonoBehaviour
             canOpen = false;
 		}
         playerSpawn = player.transform.position;
-        
-}
+    }
 
 	void Update()
     {
@@ -41,6 +43,11 @@ public class LevelMenu : MonoBehaviour
         if(GameManager.instance.playerDied)
 		{
             Lose();
+            if(!playedSound)
+			{
+                SoundManager.instance.PlaySound(deathSound);
+                playedSound = true;
+            }
 		}
     }
 
@@ -81,6 +88,7 @@ public class LevelMenu : MonoBehaviour
         timer.ResetTime();
         loseScreen.SetActive(false);
         GameManager.instance.RestartLevel();
+        playedSound = false;
     }
 
     public void QuitLevel()

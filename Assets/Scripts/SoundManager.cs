@@ -6,17 +6,11 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-
-	[SerializeField] private Slider sfxSlider;
-	[SerializeField] private Slider musicSlider;
-
-	public Timer timer;
-	public bool levelStarted = false;
-
     public static SoundManager instance;
 
-    [SerializeField] private AudioSource musicSource, effectsSource;
-	[SerializeField] private AudioClip music;
+    public AudioSource musicSource, effectsSource, oceanSource;
+
+	public bool notDiedYet = true;
 
 	private void Awake()
 	{
@@ -31,31 +25,14 @@ public class SoundManager : MonoBehaviour
 		}
 	}
 
-	private void Update()
+
+	private void Start()
 	{
-		//effectsSource.volume = sfxSlider.value;
-		//musicSource.volume = musicSlider.value;
-
-		if(levelStarted)
-		{
-			//PlayMusic(music);
-		}
+		//musicSource.Play();
 	}
-
 
 	public void PlaySound(AudioClip clip)
 	{
         effectsSource.PlayOneShot(clip);
-	}
-
-    public void PlayMusic(AudioClip music)
-	{
-        musicSource.PlayOneShot(music);
-	}
-
-
-    public void ChangeMasterVolume(float value)
-	{
-        AudioListener.volume = value;
 	}
 }

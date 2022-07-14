@@ -176,12 +176,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 962a3c93859b5d748ad98583fd8151a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
-  timer: {fileID: 0}
   musicSource: {fileID: 2816676543315916781}
   effectsSource: {fileID: 2816676544994954142}
-  music: {fileID: 8300000, guid: 475f4837af487ce4a9e68bb227455e4c, type: 3}
+  oceanSource: {fileID: 4562323958046113710}
+  notDiedYet: 1
 --- !u!1 &2816676544994954141
 GameObject:
   m_ObjectHideFlags: 0

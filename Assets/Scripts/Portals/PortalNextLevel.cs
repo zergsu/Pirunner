@@ -8,9 +8,14 @@ public class PortalNextLevel : MonoBehaviour
     [SerializeField] GameObject particleEffect;
     [SerializeField] Timer timer;
 
+    [SerializeField] AudioClip victorySound;
+
+    private bool notPlayedSound;
+
     private void Start()
     {
         twirlEffect.SetActive(false);
+        notPlayedSound = true;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -20,8 +25,11 @@ public class PortalNextLevel : MonoBehaviour
             particleEffect.SetActive(true);
 
             GameManager.instance.playerWon = true;
-            
-            Debug.Log(timer.gameTime);
+            if(notPlayedSound)
+			{
+                SoundManager.instance.PlaySound(victorySound);
+                notPlayedSound = false;
+			}
             SaveData.CheckScore(timer.gameTime);
             SaveData.UnlockNextLevel();
         }
