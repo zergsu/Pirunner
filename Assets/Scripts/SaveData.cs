@@ -41,7 +41,7 @@ public class SaveData : MonoBehaviour
 
     static public void Save()
     {
-        string savePath = path;
+        string savePath = persistentPath;
 
         string json = JsonUtility.ToJson(scoreData);
 
@@ -52,7 +52,7 @@ public class SaveData : MonoBehaviour
     public void Load()
     {
         Debug.Log("Loading");
-        using StreamReader reader = new StreamReader(path);
+        using StreamReader reader = new StreamReader(persistentPath);
         string json = reader.ReadToEnd();
 
         scoreData = JsonUtility.FromJson<ScoreData>(json);
