@@ -49,7 +49,7 @@ public class PortalLevelSelect : MonoBehaviour
 
     private void LoadPortalData()
     {
-        data = SaveData.Load2(trigger.level - 1);
+        data = SaveData.LoadLevelData(trigger.level - 1);
         levelUnlocked = data.unlocked;
         Score.a = data.high1;
         Score.b = data.high2;

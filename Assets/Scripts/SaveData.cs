@@ -7,10 +7,9 @@ using UnityEngine.SceneManagement;
 public class SaveData : MonoBehaviour
 {
     static private ScoreData scoreData;
-    private LevelData test = new LevelData();
 
     static private string path = "";
-    private string persistentPath = "";
+    static private string persistentPath = "";
 
     private void Awake()
     {
@@ -39,22 +38,12 @@ public class SaveData : MonoBehaviour
         persistentPath = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "SaveData.json";
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.U))
-            Save();
-
-        if (Input.GetKeyDown(KeyCode.I))
-            Load();
-    }
 
     static public void Save()
     {
         string savePath = path;
 
-        Debug.Log("Saving Data at " + savePath);
         string json = JsonUtility.ToJson(scoreData);
-        Debug.Log(json);
 
         using StreamWriter writer = new StreamWriter(savePath);
         writer.Write(json);
@@ -67,11 +56,9 @@ public class SaveData : MonoBehaviour
         string json = reader.ReadToEnd();
 
         scoreData = JsonUtility.FromJson<ScoreData>(json);
-
-        Debug.Log(scoreData.level[0].unlocked + " " + scoreData.level[0].high1 + " " + scoreData.level[0].high2 + " " + scoreData.level[0].high3);
     }
 
-    static public LevelData Load2(int lev)
+    static public LevelData LoadLevelData(int lev)
     {
         return scoreData.level[lev];
     }
@@ -106,11 +93,10 @@ public class SaveData : MonoBehaviour
         }
     }
 
-    //unlocks the next level
     static public void UnlockNextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex != 4)
-		{
+        {
             scoreData.level[SceneManager.GetActiveScene().buildIndex].unlocked = true;
             Save();
         }
@@ -129,7 +115,7 @@ public class ScoreData
 public class LevelData
 {
     public bool unlocked;
-    public float high1;
-    public float high2;
-    public float high3;
+    public float high1 = 100;
+    public float high2 = 100;
+    public float high3 = 100;
 }
