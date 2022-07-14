@@ -10,6 +10,8 @@ public class PortalScript : MonoBehaviour
     float inTime;
     bool playerIsInPortal;
 
+    [SerializeField] Sliders sliders;
+
     
     void Start()
     {
@@ -45,6 +47,7 @@ public class PortalScript : MonoBehaviour
 
     public void LoadLevel(int id)
     {
+        sliders.SaveSlidersData();
         SceneManager.LoadScene(id);
     }
 
