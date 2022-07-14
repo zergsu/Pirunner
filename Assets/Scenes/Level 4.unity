@@ -75000,6 +75000,11 @@ PrefabInstance:
       propertyPath: level
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 297734870993650453, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
+        type: 3}
+      propertyPath: sliders
+      value: 
+      objectReference: {fileID: 8282108051142731575}
     - target: {fileID: 297734871370097925, guid: 99ecf50c2e5327b4d91d2afaf9ea6722,
         type: 3}
       propertyPath: m_Mesh
