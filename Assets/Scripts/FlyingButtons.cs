@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-//Makes menu buttons fly into the screen
-//it might be better to check the condition on a game manager that toggles on/off, and put this script on a canvas
+
 public class FlyingButtons : MonoBehaviour
 {
 
@@ -15,11 +14,6 @@ public class FlyingButtons : MonoBehaviour
     float screenPart = Screen.height / 6;
     Vector2 hidingPos = new Vector2(-80, -15);
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-
-    }
 
     private void OnEnable()
     {

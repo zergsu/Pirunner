@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
+
+    [Header("Values")]
     public float mouseSensitivity = 150f;
-
-    public Transform orientaion;
-
     float xRotation;
     float yRotation;
+
+    [Header("Refs")]
+    public Transform orientaion;
+
+    [Header("Constants")]
+    const string MOUSE_X = "Mouse X";
+    const string MOUSE_Y = "Mouse Y";
+
 
     void Start()
     {
@@ -20,8 +27,8 @@ public class PlayerCam : MonoBehaviour
     
     void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * mouseSensitivity;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * mouseSensitivity;
+        float mouseX = Input.GetAxisRaw(MOUSE_X) * Time.deltaTime * mouseSensitivity;
+        float mouseY = Input.GetAxisRaw(MOUSE_Y) * Time.deltaTime * mouseSensitivity;
 
         yRotation += mouseX;
         xRotation -= mouseY;

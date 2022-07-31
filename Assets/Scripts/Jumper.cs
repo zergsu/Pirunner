@@ -8,7 +8,7 @@ public class Jumper : MonoBehaviour
 
 	private void OnCollisionEnter(Collision other)
 	{
-       PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
-        player.OnJumper(jumperForce);
+		PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
+		player.OnJumper(jumperForce);
 	}
 }

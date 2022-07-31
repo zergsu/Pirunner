@@ -7,18 +7,19 @@ using UnityEngine.SceneManagement;
 public class LevelMenu : MonoBehaviour
 {
 
+    public GameObject SettingsMenu, Menu;
+    public bool canOpen;
+    public Vector3 playerSpawn;
+
+    [Header("Refs")]
     [SerializeField] GameObject loseScreen;
     [SerializeField] Timer timer;
-
     [SerializeField] AudioClip deathSound;
     [SerializeField] PlayerMovement player;
 
-    public GameObject SettingsMenu, Menu;
-    public bool canOpen;
-
     private bool playedSound = false;
 
-    public Vector3 playerSpawn;
+
 
     private void Start()
 	{

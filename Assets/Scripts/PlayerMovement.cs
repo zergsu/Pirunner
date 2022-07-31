@@ -16,9 +16,10 @@ public class PlayerMovement : MonoBehaviour
     public bool moving;
     public bool onMovingPlatform;
     public bool onMud;
-
-
     public float groundDrag;
+
+
+
 
     [Header("Jumping")]
     public float jumpForce;
@@ -36,19 +37,28 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode jumpKey = KeyCode.Space;
     public KeyCode sprintKey = KeyCode.LeftShift;
 
+    [Header("Constants")]
+    const string VERTICAL_INPUT = "Vertical";
+    const string HORIZONTAL_INPUT = "Horizontal";
+
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
     public bool grounded;
 
-    public Transform orientation;
-
+    
+    [Header("Inputs")]
     float horizontalInput;
     float verticalInput;
 
+    [Header("Refs")]
+    public Transform orientation;
+    public Rigidbody rb;
+
+
     Vector3 moveDirection;
 
-    public Rigidbody rb;
+    
 
     private void Start()
     {
@@ -92,11 +102,11 @@ public class PlayerMovement : MonoBehaviour
 		{
             if (grounded)
             {
-                horizontalInput = Input.GetAxisRaw("Horizontal");
+                horizontalInput = Input.GetAxisRaw(HORIZONTAL_INPUT);
             }
-            else horizontalInput = Input.GetAxisRaw("Horizontal") * 0.1f;
+            else horizontalInput = Input.GetAxisRaw(HORIZONTAL_INPUT) * 0.1f;
 
-            verticalInput = Input.GetAxisRaw("Vertical");
+            verticalInput = Input.GetAxisRaw(VERTICAL_INPUT);
         }
 
         
